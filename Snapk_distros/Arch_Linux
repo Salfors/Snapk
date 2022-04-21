@@ -1,7 +1,6 @@
 function Arch_Linux() {
-
-    user=`whoami` 
-	if [ "$user" == "root" ]; then 
+ 
+	if (( $EUID == 0 )); then 
         echo -e "\n${SE} You Must Be a Normal User To Successfully Complete a Process !! ${EE}\n" 
     else        
     	case $TODO in 
