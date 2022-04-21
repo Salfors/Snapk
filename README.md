@@ -1,7 +1,7 @@
 # Snapk
  Flatpak and Snap install tool
 
-![Snapk](https://user-images.githubusercontent.com/87897405/164501305-f6e60f7a-ed46-479c-ba07-dbfa8f213ba4.png)
+![e](https://user-images.githubusercontent.com/87897405/164501555-fbfd0c84-ecae-4c74-af67-762a0cb9c927.png)
 
 ## Usage
 
