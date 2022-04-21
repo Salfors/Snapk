@@ -404,7 +404,7 @@ function Check_snapk() {
             fi
             
             
-            if [ "$note" == ""  ]  && [ "$note2" == "" ] && [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ]; then 
+            if [ "$note" == ""  ] && [ "$note2" == "" ] && [ "$snap_note" == ""  ] && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ] && [ "$distro_os" != "Arch_Linux" ]; then 
                   echo -e "\n${SP}Done${EP}\n"
                   echo -e "${SP}You may need to restart now${EP}\n"
                   read -n 1 -s -r -p "Press any key to Exit ..."
