@@ -1,0 +1,29 @@
+function AlmaLinux() {
+	
+	case $TODO in 
+		"1")
+			function AlmaLinux_snap() { 
+
+				snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+
+			}
+			AlmaLinux_snap ;;
+
+		"2")
+			function AlmaLinux_Flatpak(){
+
+				sudo dnf update
+				sudo dnf install epel-release
+				sudo dnf install flatpak
+				(cd $Home; cd Downloads/ ; wget https://flathub.org/repo/flathub.flatpakrepo;flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo)  
+				sudo dnf update
+
+			} 
+			AlmaLinux_Flatpak ;;
+
+		"3")
+			AlmaLinux_Flatpak
+			AlmaLinux_snap ;;
+
+	esac
+}

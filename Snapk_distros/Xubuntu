@@ -1,0 +1,15 @@
+function Xubuntu() {
+	case $TODO in 
+		"1")
+			sudo apt update 
+			sudo apt install snapd ;;
+
+		"2")
+			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n" ;;
+
+		"3")
+			sudo apt update 
+			sudo apt install snapd
+			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n"  ;;
+	esac
+}

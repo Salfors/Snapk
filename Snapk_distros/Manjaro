@@ -1,0 +1,20 @@
+function Manjaro() {
+	case $TODO in 
+		"1")
+
+			function Manjaro_snap() {
+				sudo pacman -S snapd 
+				sudo systemctl enable --now snapd.socket 
+				sudo ln -s /var/lib/snapd/snap /snap
+			}
+			Manjaro_snap ;;
+
+		"2")
+			flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n"  ;;
+
+		"3")
+			Manjaro_snap
+			flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n"  ;;
+		
+	esac 
+}

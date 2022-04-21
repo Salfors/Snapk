@@ -1,0 +1,20 @@
+function Clear() {
+	case $TODO in 
+		"1")
+			function Clear_snap() { 
+
+				snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+
+			}
+			Clear_snap ;;
+
+		"2")
+		
+			sudo swupd bundle-add desktop ;;
+
+		"3")
+			Clear_snap 
+			sudo swupd bundle-add desktop ;; # For Flatpak
+			
+	esac
+}

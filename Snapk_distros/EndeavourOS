@@ -1,0 +1,20 @@
+function EndeavourOS() {
+
+	case $TODO in 
+		"1")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n"  ;;
+
+		"2")
+			function EndeavourOS_Flatpak() {
+			
+				sudo pacman -Syu 
+				sudo pacman -S flatpak 
+				sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo 
+			}
+			EndeavourOS_Flatpak ;;
+
+		"3")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+			EndeavourOS_Flatpak ;;
+	esac 
+}

@@ -1,0 +1,19 @@
+function SulinOS() {
+	case $TODO in 
+		"1")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n"  ;;
+
+		"2")
+			function SulinOS_Flatpak() { 
+			su
+			inary it flatpak 
+			su
+			sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+			} 
+			SulinOS_Flatpak ;;
+
+		"3")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+			SulinOs_Flatpak ;;
+	esac
+}

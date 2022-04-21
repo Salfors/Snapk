@@ -1,0 +1,29 @@
+function Ubuntu() {
+
+	case $TODO in 
+         "1")
+            function Ubuntu_snap() {
+
+					sudo apt update
+					sudo apt install snapd 
+
+			}
+			Ubuntu_snap ;;
+
+		"2")
+			function Ubuntu_Flatpak() {
+
+				sudo apt install flatpak  
+				#if is older ubunut 
+				sudo add-apt-repository ppa:flatpak/stable
+				sudo apt update
+				sudo apt install flatpak 
+				
+			}
+			Ubuntu_Flatpak ;;
+
+		"3")
+			Ubuntu_snap
+			Ubuntu_Flatpak ;;
+	esac
+}

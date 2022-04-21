@@ -1,0 +1,26 @@
+function Zorin_os() {
+	
+	case $TODO in 
+		"1")
+			function Zorin_snap() {
+				
+				sudo apt update
+				sudo apt install snapd 
+
+			}
+			Zorin_snap ;;
+
+		 "2")
+				function Zorin_Flatpak() {  
+					flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n"
+
+
+                }
+				Zorin_Flatpak ;;
+
+		"3")
+			Zorin_snap 
+			Zorin_Flatpak;;
+			
+	esac
+}

@@ -1,0 +1,25 @@
+function CentOS() {
+	
+	case $TODO in 
+		"1")
+			function CentOS_snap() {
+
+				sudo yum install snapd 
+				sudo ln -s /var/lib/snapd/snap /snap
+
+			}
+			CentOS_snap ;;
+
+		"2")
+			function CentOS_Flatpak() {
+
+				flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n"
+       
+			}
+			CentOS_Flatpak ;;
+
+		"3")
+			CentOS_snap
+			CentOS_Flatpak ;;
+	esac
+}

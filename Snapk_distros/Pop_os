@@ -1,0 +1,27 @@
+function Pop_os() {
+	
+	case $TODO in 
+        "1")
+             function Pop_snap() {
+
+                 sudo apt update 
+                 sudo apt install snapd 
+
+                }
+                Pop_snap ;;
+
+         "2")
+              function Pop_Flatpak() {
+ 
+                 sudo apt install flatpak 
+                 sudo flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+
+                } 
+                Pop_Flatpak ;;
+
+        "3")
+            Pop_snap
+            Pop_Flatpak ;;
+            
+    esac
+}

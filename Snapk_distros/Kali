@@ -1,0 +1,18 @@
+function Kali() {
+	case $TODO in 
+		"1")
+			 
+			sudo apt update
+			sudo apt install snapd 
+			sudo systemctl enable --now snapd apparmor ;;
+
+		"2")
+			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n" ;;
+
+		"3")
+			sudo apt update
+			sudo apt install snapd 
+			sudo systemctl enable --now snapd apparmor 
+			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n" ;;
+esac 
+}

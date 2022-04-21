@@ -1,0 +1,21 @@
+function Rocky() {
+	case $TODO in 
+		"1")
+			function Rocky_snap() { 
+ 
+				sudo dnf install epel-release
+				sudo dnf upgrade 
+				sudo yum install snapd 
+				sudo systemctl enable --now snapd.socket 
+				sudo ln -s /var/lib/snapd/snap /snap
+			}
+			Rocky_snap ;;
+
+		"2")
+			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n"  ;;
+
+		"3")
+			Rocky_snap
+			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n" ;;
+	esac
+}

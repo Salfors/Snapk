@@ -1,0 +1,18 @@
+function NixOS() {
+	case $TODO in 
+		"1")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n"  ;;
+
+		"2")
+			
+			services.flatpak.enable = true;
+			sudo nixos-rebuild switch 
+			sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo ;;
+
+		"3")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+			services.flatpak.enable = true;
+			sudo nixos-rebuild switch 
+			sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo ;;
+	esac
+}
