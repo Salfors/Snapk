@@ -3,17 +3,14 @@ function Arch_Linux() {
     case $TODO in 
 
         "1")
-                
             function Arch_snap() {
-                if (( $EUID == 0 )); then
-                    Arch_snap_error="\n${SE} You Must Be a Normal User To Inatall Snap Successfully !! ${EE}\n" 
-                else   
-                    git clone https://aur.archlinux.org/snapd.git 
-                    cd snapd 
-                    makepkg -si
-                    sudo systemctl enable --now snapd.socket
-                    sudo ln -s /var/lib/snapd/snap /snap
-                fi
+
+                git clone https://aur.archlinux.org/snapd.git 
+                cd snapd 
+                makepkg -si
+                sudo systemctl enable --now snapd.socket
+                sudo ln -s /var/lib/snapd/snap /snap
+
             } 
             Arch_snap ;;
                      
@@ -32,5 +29,4 @@ function Arch_Linux() {
     		Arch_Flatpak  ;;
               
     esac
-
 }
