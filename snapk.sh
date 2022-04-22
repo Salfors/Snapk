@@ -338,6 +338,8 @@ function Check_snapk() {
                   echo -e "$source_note"
             fi
 
+
+
             if [ "$note" != ""  ]  && [ "$note2" != "" ]; then 
                   echo -e "$note"
                   echo -e "$note2\n$Snap\n"
@@ -361,9 +363,12 @@ function Check_snapk() {
                   echo -e "$flatpak_note"
 
             fi
-            
-            
-            if [ "$note" == ""  ]  && [ "$note2" == "" ] && [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ] && [ "$distro_os" != "Arch_Linux" ]; then 
+            # This is an eceptional case of the Arch Linux distrubution 
+            if [ "$Arch_snap_error" != "" ]; then
+                  echo -e $Arch_snap_error
+            fi
+
+            if [ "$note" == ""  ]  && [ "$note2" == "" ] && [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ] && [ "$Arch_snap_error" == "" ]; then 
                   echo -e "\n${SP}Done${EP}\n"
                   echo -e "${SP}You may need to restart now${EP}\n"
                   read -n 1 -s -r -p "Press any key to Exit ..."
