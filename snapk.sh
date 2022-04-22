@@ -338,8 +338,6 @@ function Check_snapk() {
                   echo -e "$source_note"
             fi
 
-
-
             if [ "$note" != ""  ]  && [ "$note2" != "" ]; then 
                   echo -e "$note"
                   echo -e "$note2\n$Snap\n"
@@ -363,12 +361,8 @@ function Check_snapk() {
                   echo -e "$flatpak_note"
 
             fi
-            # This is an eceptional case of the Arch Linux distrubution 
-            if [ "$Arch_snap_error" != "" ]; then
-                  echo -e $Arch_snap_error
-            fi
 
-            if [ "$note" == ""  ]  && [ "$note2" == "" ] && [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ] && [ "$Arch_snap_error" == "" ]; then 
+            if [ "$note" == ""  ]  && [ "$note2" == "" ] && [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ]; then 
                   echo -e "\n${SP}Done${EP}\n"
                   echo -e "${SP}You may need to restart now${EP}\n"
                   read -n 1 -s -r -p "Press any key to Exit ..."
@@ -484,11 +478,16 @@ function main() {
 pwd=`pwd`
 find=`find $pwd -type d -name "Snapk_distros"`
 
-if ! $find >/dev/null 2>&1; then
-      main
-else 
-      sleep 2
+if (( $EUID == 0 )); then
       clear
-      echo -e "\n${SE}functions directory 'Snapk_distros' not found on $pwd/...?${EE}\n"
+      echo -e "\n${SE} You Must Be a Normal User To Successfully Complete a Process !! ${EE}\n"
+else
+      if ! $find >/dev/null 2>&1; then
+            main
+      else 
+            sleep 2
+            clear
+            echo -e "\n${SE}functions directory 'Snapk_distros' not found on $pwd/...?${EE}\n"
 
+      fi
 fi
