@@ -1,39 +1,36 @@
 function Arch_Linux() {
- 
-	if (( $EUID == 0 )); then 
-        echo -e "\n${SE} You Must Be a Normal User To Successfully Complete a Process !! ${EE}\n" 
-    else        
-    	case $TODO in 
 
-             "1")
+    case $TODO in 
+
+        "1")
                 
-                 function Arch_snap() {
-
-                   git clone https://aur.archlinux.org/snapd.git 
-                   cd snapd 
-                   makepkg -si
-                   sudo systemctl enable --now snapd.socket
-                   sudo ln -s /var/lib/snapd/snap /snap
-
-                   } 
-                    Arch_snap ;;
+            function Arch_snap() {
+                if (( $EUID == 0 )); then
+                    Arch_snap_error="\n${SE} You Must Be a Normal User To Inatall Snap Successfully !! ${EE}\n" 
+                else   
+                    git clone https://aur.archlinux.org/snapd.git 
+                    cd snapd 
+                    makepkg -si
+                    sudo systemctl enable --now snapd.socket
+                    sudo ln -s /var/lib/snapd/snap /snap
+                fi
+            } 
+            Arch_snap ;;
                      
-            "2")
-                   function Arch_Flatpak() {
+        "2")
+                function Arch_Flatpak() {
 
-                      echo "Install FlatAPk" 
-                      sudo rm -rf /var/lib/pacman/db.lck
-                      sudo pacman -S flatpak 
+                    sudo rm -rf /var/lib/pacman/db.lck
+                    sudo pacman -S flatpak 
 
-                   }
-                    Arch_Flatpak ;; 
+                }
+                Arch_Flatpak ;; 
                     
                      
-    		"3")
-    			Arch_snap
-    		   Arch_Flatpak  ;;
+    	"3")
+    		Arch_snap
+    		Arch_Flatpak  ;;
               
-         esac
-    fi
-}
+    esac
 
+}
