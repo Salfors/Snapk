@@ -1,6 +1,6 @@
 <<com
 
-The idea behind this script is that I'm someone who switches between Linux distributions a lot and every time I need Flatpak and Snap for my apps.
+The idea behind this script is that I'm someone who switches between Linux distributions a lot and every time I need Flatback and Snap for my apps.
 
 The idea isn't that important but it looks like I did it primarily for fun 
 
@@ -16,7 +16,7 @@ __________ SNAPK
                   |           |
                   |           |……… ASCII_Art  (To show the art of ascii )
                   |           |
-                  |           |……… sources  (to export source functions)
+                  |           |……… Check_distro_function  (to export source functions)
                   |           |
                   |           |……… installation  (For the installation process after passing all verifications)
                   |           |
@@ -140,51 +140,7 @@ ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
 ASCII_Art 
 
 
-#----------------source the function----------------#
-
-function sources() {
-
-      source $pwd/Snapk_distros/AlmaLinux
-      source $pwd/Snapk_distros/Alpine
-      
-      source $pwd/Snapk_distros/Ataraxia
-      source $pwd/Snapk_distros/CentOS
-      source $pwd/Snapk_distros/Chrome_OS
-      source $pwd/Snapk_distros/Clear
-      source $pwd/Snapk_distros/Debian
-      source $pwd/Snapk_distros/Deepin
-      source $pwd/Snapk_distros/elementary
-      source $pwd/Snapk_distros/EndeavourOS
-      source $pwd/Snapk_distros/Endless
-      source $pwd/Snapk_distros/Fedora
-      source $pwd/Snapk_distros/GalliumOS
-      source $pwd/Snapk_distros/Gentoo
-      source $pwd/Snapk_distros/Kali
-      source $pwd/Snapk_distros/KDE
-      source $pwd/Snapk_distros/Kubuntu
-      source $pwd/Snapk_distros/Linux_Mint
-      source $pwd/Snapk_distros/Mageia
-      source $pwd/Snapk_distros/Manjaro
-      source $pwd/Snapk_distros/Mx
-      source $pwd/Snapk_distros/NixOS
-      source $pwd/Snapk_distros/openSUSE
-      source $pwd/Snapk_distros/Pardus
-      source $pwd/Snapk_distros/Parrot
-      source $pwd/Snapk_distros/Pop_os
-      source $pwd/Snapk_distros/PureOS
-      source $pwd/Snapk_distros/Red_Hat_Enterprise_Linux
-      source $pwd/Snapk_distros/Rocky
-      source $pwd/Snapk_distros/Souls
-      source $pwd/Snapk_distros/SulinOS
-      source $pwd/Snapk_distros/Ubuntu
-      source $pwd/Snapk_distros/Void
-      source $pwd/Snapk_distros/Xubuntu
-      source $pwd/Snapk_distros/Zorin_os
-
-}
-
-
-#---------------------------------------------------------#
+#----------------Check_distro_function---------------#
 
 
 # To check if the distribution function is located in a specified folder
@@ -202,6 +158,9 @@ function Check_distro_function() {
 
       fi
 }
+
+#---------------------------------------------------------#
+
 
 #----------------installationation function----------------#
 
@@ -404,7 +363,7 @@ function Check_snapk() {
             fi
             
             
-            if [ "$note" == ""  ] && [ "$note2" == "" ] && [ "$snap_note" == ""  ] && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ] && [ "$distro_os" != "Arch_Linux" ]; then 
+            if [ "$note" == ""  ]  && [ "$note2" == "" ] && [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ] && [ "$distro_os" != "Arch_Linux" ]; then 
                   echo -e "\n${SP}Done${EP}\n"
                   echo -e "${SP}You may need to restart now${EP}\n"
                   read -n 1 -s -r -p "Press any key to Exit ..."
@@ -521,7 +480,6 @@ pwd=`pwd`
 find=`find $pwd -type d -name "Snapk_distros"`
 
 if ! $find >/dev/null 2>&1; then
-      sources
       main
 else 
       sleep 2
