@@ -479,7 +479,7 @@ find=`find $pwd -type d -name "Snapk_distros"`
 
 if (( $EUID == 0 )); then
       clear
-      sleep 0.2
+      sleep 1
       echo -e "\n${SE} You Must Be a Normal User To Successfully Complete a Process !! ${EE}\n"
 else
 
