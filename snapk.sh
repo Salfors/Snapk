@@ -137,8 +137,7 @@ ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
 
 
 }
-ASCII_Art 
-
+ 
 
 #----------------Check_distro_function---------------#
 
@@ -482,7 +481,9 @@ if (( $EUID == 0 )); then
       clear
       echo -e "\n${SE} You Must Be a Normal User To Successfully Complete a Process !! ${EE}\n"
 else
+
       if ! $find >/dev/null 2>&1; then
+            ASCII_Art
             main
       else 
             sleep 2
