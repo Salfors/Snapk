@@ -390,12 +390,12 @@ function Check_snapk() {
                   Flatpak=`flatpak --version` 
                   if ! $Flatpak >/dev/null 2>&1; then #
                         clear
-                        (cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo)  
-                        clear
+                        #(cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo)  
+                        #clear
                         echo -e "\n${SP}you already have${EP}: $Flatpak\n"
 
                   else
-		            clear
+		        clear
                         installation
                         Status_Messages
                   fi ;;
@@ -403,8 +403,8 @@ function Check_snapk() {
             "3")
                   Flatpak=`flatpak --version` 
                   if  ! $Flatpak >/dev/null 2>&1; then
-                        clear
-                        (cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
+                        #clear
+                        #(cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
                         note="\n${SP}you already have${EP}: $Flatpak\n"
                   else
                         installation 
