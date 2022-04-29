@@ -1,6 +1,6 @@
 <<com
 
-The idea behind this script is that I'm someone who switches between Linux distributions a lot and every time I need Flatback and Snap for my apps.
+The idea behind this script is that I'm someone who switches between Linux distributions a lot and every time I need Flatpak and Snap for my apps.
 
 The idea isn't that important but it looks like I did it primarily for fun 
 
