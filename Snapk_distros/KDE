@@ -1,0 +1,30 @@
+function KDE() {
+	case $TODO in 
+		"1")
+			function KDE_Snap() { 
+				sudo apt update 
+				sudo apt install snapd 
+			} 
+			Snap_function_start="$distro_os"_Snap 
+			Check_internet_connection ;;
+
+		"2")
+			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n"
+			Check_internet_connection ;;
+
+		"3")
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+				function KDE_Snap() { 
+					sudo apt update 
+					sudo apt install snapd 
+				} 
+				Snap_function_start="$distro_os"_Snap 
+			fi 
+
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+				flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n"
+			fi 
+			Check_internet_connection ;;
+
+	esac
+}

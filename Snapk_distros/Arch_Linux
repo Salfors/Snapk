@@ -1,0 +1,58 @@
+function Arch_Linux() {
+
+    case $TODO in 
+
+        "1")
+            function Arch_Linux_Snap() {
+                cd $HOME
+                sudo rm -rf snapd
+                git clone https://aur.archlinux.org/snapd.git 
+                cd snapd 
+                makepkg -si
+                sudo systemctl enable --now snapd.socket
+                sudo ln -s /var/lib/snapd/snap /snap
+
+            } 
+            Snap_function_start="$distro_os"_Snap 
+            Check_internet_connection ;;
+                     
+        "2")
+            function Arch_Linux_Flatpak() {
+
+                sudo rm -rf /var/lib/pacman/db.lck
+                sudo pacman -S flatpak 
+
+            }
+            Flatpak_function_start="$distro_os"_Flatpak 
+            Check_internet_connection  ;; 
+                    
+                     
+    	"3")
+            if ! $Snap_retrun >/dev/null 2>&1 ; then 
+                function Arch_Linux_Snap() {
+                    cd $HOME
+                    sudo rm -rf snapd
+                    git clone https://aur.archlinux.org/snapd.git 
+                    cd snapd 
+                    makepkg -si
+                    sudo systemctl enable --now snapd.socket
+                    sudo ln -s /var/lib/snapd/snap /snap
+
+                } 
+                Snap_function_start="$distro_os"_Snap 
+            fi 
+
+            if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+                function Arch_Linux_Flatpak() {
+
+                    sudo rm -rf /var/lib/pacman/db.lck
+                    sudo pacman -S flatpak 
+
+                }
+                Flatpak_function_start="$distro_os"_Flatpak 
+
+            fi 
+            Check_internet_connection ;; 
+              
+    esac
+}

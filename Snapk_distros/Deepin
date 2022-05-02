@@ -1,0 +1,34 @@
+function Deepin() {
+	case $TODO in 
+		"1")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n"  
+			Check_internet_connection;;
+
+		"2")
+			function Deepin_Flatpak() {
+				sudo apt install flatpak 
+				sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+				sudo flatpak install flathub org.gtk.Gtk3theme.deepin 
+				sudo flatpak install flathub org.gtk.Gtk3theme.deepin-dark 
+			}
+			Flatpak_function_start="$distro_os"_Flatpak
+			Check_internet_connection ;;
+
+		"3")
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+				snap_note= echo -e "\n${SM} Snap does not support your distro ${EM}\n" 
+			fi
+
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+				function Deepin_Flatpak() {
+					sudo apt install flatpak 
+					sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+					sudo flatpak install flathub org.gtk.Gtk3theme.deepin 
+					sudo flatpak install flathub org.gtk.Gtk3theme.deepin-dark 
+				}
+				Flatpak_function_start="$distro_os"_Flatpak
+
+			fi 
+			Check_internet_connection ;;
+	esac
+}

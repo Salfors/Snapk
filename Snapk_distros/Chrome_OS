@@ -1,0 +1,35 @@
+function Chrome_OS() {
+	
+	case $TODO in 
+		"1")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+			Check_internet_connection ;;
+
+		"2")
+			function ChromeOS_Flatpak() { 
+
+				sudo apt-get install flatpak 
+				sudo apt install gnome-software-plugin-flatpak 
+			}
+			Flatpak_function_start="$distro_os"_Flatpak
+			Check_internet_connection ;;
+
+		"3")
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+				
+				snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+			fi
+
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+			
+				function ChromeOS_Flatpak() { 
+
+					sudo apt-get install flatpak 
+					sudo apt install gnome-software-plugin-flatpak 
+				}
+				Flatpak_function_start="$distro_os"_Flatpak 
+			fi
+			Check_internet_connection ;; 
+
+	esac 
+}

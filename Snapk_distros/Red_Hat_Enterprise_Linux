@@ -1,0 +1,48 @@
+function Red_Hat_Enterprise_Linux() {
+	
+	case $TODO in 
+        "1")
+            function Red_Hat_Enterprise_Linux_Snap() {
+
+                sudo yum install snapd 
+                sudo systemctl enable --now snapd.socket 
+                sudo ln -s /var/lib/snapd/snap /snap 
+
+            }
+            Snap_function_start="$distro_os"_Snap 
+            Check_internet_connection ;;
+
+        "2")
+           function Red_Hat_Enterprise_Linux_Flatpak() {
+
+                sudo yum install flatpak 
+                (cd $Home; cd Downloads/ ; wget https://flathub.org/repo/flathub.flatpakrepo;flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
+
+            }
+            Flatpak_function_start="$distro_os"_Flatpak
+            Check_internet_connection  ;;
+
+        "3")
+            if ! $Snap_retrun >/dev/null 2>&1 ; then 
+                function Red_Hat_Enterprise_Linux_Snap() {
+
+                    sudo yum install snapd 
+                    sudo systemctl enable --now snapd.socket 
+                    sudo ln -s /var/lib/snapd/snap /snap 
+
+                }
+                Snap_function_start="$distro_os"_Snap 
+            fi 
+
+            if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+               function Red_Hat_Enterprise_Linux_Flatpak() {
+
+                    sudo yum install flatpak 
+                    (cd $Home; cd Downloads/ ; wget https://flathub.org/repo/flathub.flatpakrepo;flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
+
+                }
+                Flatpak_function_start="$distro_os"_Flatpak
+            fi 
+            Check_internet_connection ;; 
+    esac 
+}

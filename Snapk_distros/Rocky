@@ -1,0 +1,37 @@
+function Rocky() {
+	case $TODO in 
+		"1")
+			function Rocky_Snap() { 
+ 
+				sudo dnf install epel-release
+				sudo dnf upgrade 
+				sudo yum install snapd 
+				sudo systemctl enable --now snapd.socket 
+				sudo ln -s /var/lib/snapd/snap /snap
+			}
+			Snap_function_start="$distro_os"_Snap 
+			Check_internet_connection ;;
+
+		"2")
+			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n"  
+			Check_internet_connection ;;
+
+		"3")
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+				function Rocky_Snap() { 
+	 
+					sudo dnf install epel-release
+					sudo dnf upgrade 
+					sudo yum install snapd 
+					sudo systemctl enable --now snapd.socket 
+					sudo ln -s /var/lib/snapd/snap /snap
+				}
+				Snap_function_start="$distro_os"_Snap 
+			fi 
+
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+				flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n"
+			fi 
+			Check_internet_connection ;; 
+	esac
+}

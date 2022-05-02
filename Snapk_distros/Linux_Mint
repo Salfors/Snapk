@@ -1,0 +1,32 @@
+function Linux_Mint() {
+	case $TODO in 
+		"1")
+			function Linux_Mint_Snap() { 
+				sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.backup 
+				sudo apt update 
+				sudo apt install snapd 
+			}
+			Snap_function_start="$distro_os"_Snap 
+			Check_internet_connection ;;
+
+		"2")
+			flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n" 
+			Check_internet_connection ;;
+
+		"3")
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+				function Linux_Mint_Snap() { 
+					sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.backup 
+					sudo apt update 
+					sudo apt install snapd 
+				}
+				Snap_function_start="$distro_os"_Snap 
+			fi 
+			
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+				flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n" 
+			fi 
+			Check_internet_connection ;; 
+
+	esac
+}

@@ -1,0 +1,22 @@
+function PureOS() {
+	case $TODO in 
+		"1")
+			snap_note="\n${SM} Snap does not support your distro ${EM}\n"  
+			Check_internet_connection ;;
+
+		"2")
+			flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n"
+			Check_internet_connection  ;;
+
+		
+		"3")
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+				snap_note="\n${SM} Snap does not support your distro ${EM}\n"  
+			fi 
+
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+				flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n"
+			fi 
+			Check_internet_connection ;; 
+	esac
+}

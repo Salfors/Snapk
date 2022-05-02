@@ -1,0 +1,39 @@
+function CentOS() {
+	
+	case $TODO in 
+		"1")
+			function CentOS_Snap() {
+
+				sudo yum install snapd 
+				sudo ln -s /var/lib/snapd/snap /snap
+
+			}
+			Snap_function_start="$distro_os"_Snap
+			Check_internet_connection ;;
+
+		"2")
+
+			flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n"
+			Check_internet_connection  ;;
+
+		"3")
+
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+				
+				function CentOS_Snap() {
+
+					sudo yum install snapd 
+					sudo ln -s /var/lib/snapd/snap /snap
+
+				}
+				Snap_function_start="$distro_os"_Snap
+			fi
+
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+
+			flapak_note="\n${SM} your distribution might be out of date and need an upgrade ${EM}\n"
+			fi
+			
+			Check_internet_connection ;;  ;;
+	esac
+}

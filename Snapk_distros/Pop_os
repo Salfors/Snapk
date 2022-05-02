@@ -1,0 +1,46 @@
+function Pop_os() {
+	
+	case $TODO in 
+        "1")
+             function Pop_os_Snap() {
+
+                sudo apt update 
+                sudo apt install snapd 
+
+            }
+            Snap_function_start="$distro_os"_Snap 
+            Check_internet_connection   ;;
+
+         "2")
+              function Pop_os_Flatpak() {
+ 
+                 sudo apt install flatpak 
+                 sudo flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+
+                } 
+                Flatpak_function_start="$distro_os"_Flatpak
+                Check_internet_connection   ;;
+
+        "3")
+            if ! $Snap_retrun >/dev/null 2>&1 ; then 
+                 function Pop_os_Snap() {
+
+                    sudo apt update 
+                    sudo apt install snapd 
+
+                }
+                Snap_function_start="$distro_os"_Snap 
+            fi 
+
+            if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+              function Pop_os_Flatpak() {
+ 
+                 sudo apt install flatpak 
+                 sudo flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+
+                } 
+                Flatpak_function_start="$distro_os"_Flatpak
+            fi 
+            Check_internet_connection ;; 
+    esac
+}

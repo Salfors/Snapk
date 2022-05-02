@@ -1,0 +1,48 @@
+function Souls() {
+	
+	case $TODO in 
+		"1")
+			function Souls_Snap() {
+
+				sudo eopkg up 
+				sudo eopkg install snapd 
+
+			}
+			Snap_function_start="$distro_os"_Snap 
+			Check_internet_connection ;;
+
+		"2")
+			function Souls_Flatpak() {
+
+				sudo eopkg install flatpak xdg-desktop-portal-gtk
+				sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+
+			}
+			Flatpak_function_start="$distro_os"_Flatpak
+			Check_internet_connection ;;
+
+		"3")	
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+				function Souls_Snap() {
+
+					sudo eopkg up 
+					sudo eopkg install snapd 
+
+				}
+				Snap_function_start="$distro_os"_Snap 
+			fi 
+
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+				function Souls_Flatpak() {
+
+					sudo eopkg install flatpak xdg-desktop-portal-gtk
+					sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+
+				}
+				Flatpak_function_start="$distro_os"_Flatpak
+			fi 
+			Check_internet_connection ;; 
+			
+	esac
+	
+}

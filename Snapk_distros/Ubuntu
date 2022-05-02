@@ -1,0 +1,52 @@
+function Ubuntu() {
+
+	case $TODO in 
+         "1")
+            function Ubuntu_Snap() {
+
+					sudo apt update
+					sudo apt install snapd 
+
+			}
+			Snap_function_start="$distro_os"_Snap 
+			Check_internet_connection ;;
+
+		"2")
+			function Ubuntu_Flatpak() {
+
+				sudo apt install flatpak  
+				#if is older ubunut 
+				sudo add-apt-repository ppa:flatpak/stable
+				sudo apt update
+				sudo apt install flatpak 
+				
+			}
+			Flatpak_function_start="$distro_os"_Flatpak
+			Check_internet_connection ;;
+
+		"3")
+			if ! $Snap_retrun >/dev/null 2>&1 ; then 
+            function Ubuntu_Snap() {
+
+					sudo apt update
+					sudo apt install snapd 
+
+				}
+				Snap_function_start="$distro_os"_Snap 
+			fi 
+
+			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+				function Ubuntu_Flatpak() {
+
+					sudo apt install flatpak  
+					#if is older ubunut 
+					sudo add-apt-repository ppa:flatpak/stable
+					sudo apt update
+					sudo apt install flatpak 
+					
+				}
+				Flatpak_function_start="$distro_os"_Flatpak
+			fi 
+			Check_internet_connection ;; 
+	esac
+}
