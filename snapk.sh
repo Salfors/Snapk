@@ -140,7 +140,7 @@ ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
 
 }
  
-#----------------- Check_internet_connection ------------#
+#----------------- Check_interinternet_note_connection ------------#
 
 function Check_internet_connection() {  
 
@@ -462,9 +462,18 @@ function Check_snapk() {
                   Flatpak=`flatpak --version` 
                   if ! $Flatpak >/dev/null 2>&1; then #
                         clear
-                        #(cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo)  
+                        # Just to complete some minor steps that can be skipped in the absence of an internet connection
+
+                        if nc -zw1 google.com 443 >/dev/null 2>&1 ; then
+                              clear
+                              (cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
+                              clear
+                              echo -e "\n${SP}you already have${EP}: $Flatpak\n"
+                        else
+                              echo -e "\n${SP}you already have${EP}: $Flatpak\n"
+                        fi 
                         #clear
-                        echo -e "\n${SP}you already have${EP}: $Flatpak\n"
+                        
 
                   else
                         clear
@@ -476,9 +485,17 @@ function Check_snapk() {
             "3")
                   Flatpak=`flatpak --version` 
                   if  ! $Flatpak >/dev/null 2>&1; then
-                        #clear
-                        #(cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
-                        note="\n${SP}you already have${EP}: $Flatpak\n"
+
+                        # Just to complete some minor steps that can be skipped in the absence of an internet connection
+
+                        if nc -zw1 google.com 443 >/dev/null 2>&1 ; then
+                              clear
+                              (cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
+                              note="\n${SP}you already have${EP}: $Flatpak\n"
+                        else
+                               note="\n${SP}you already have${EP}: $Flatpak\n"
+                        fi
+
                   else
                         Flatpak_retrun=Start_flatpak_install 
 
