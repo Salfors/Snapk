@@ -1,25 +1,54 @@
-functionopenSUSE() {
-	case $TODO in 
- 		"1")
- 			function openSUSE_snap() {
-				sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.2 snappy 
-				sudo zypper --gpg-auto-import-keys refresh
-				sudo zypper dup --from snappy
-				sudo zypper install snapd
-				source ~/.bashrc
-				sudo systemctl enable --now snapd
-			}
-			openSUSE_snap ;;
+function openSUSE() {
 
-		"2")	
-			function openSUSE_Flatpak(){
-				sudo zypper install flatpak 
-				flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-			}
-			openSUSE_Flatpak ;;
-		"3")
-			openSUSE_snap
-			openSUSE_Flatpak ;;
-	esac 
-	
+    case $TODO in 
+
+        "1")
+            function openSUSE_Snap() {
+
+                sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.2 snappy 
+                sudo zypper --gpg-auto-import-keys refresh
+                sudo zypper dup --from snappy
+                sudo zypper install snapd
+                source ~/.bashrc
+                sudo systemctl enable --now snapd
+            }
+            Snap_function_start="$distro_os"_Snap 
+            Check_internet_connection ;;
+
+        "2")    
+            function openSUSE_Flatpak(){
+
+                sudo zypper install flatpak 
+                flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+            }
+            Flatpak_function_start="$distro_os"_Flatpak 
+            Check_internet_connection  ;;
+        "3")
+
+            if ! $Snap_retrun >/dev/null 2>&1 ; then 
+                function openSUSE_Snap() {
+
+                    sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.2 snappy 
+                    sudo zypper --gpg-auto-import-keys refresh
+                    sudo zypper dup --from snappy
+                    sudo zypper install snapd
+                    source ~/.bashrc
+                    sudo systemctl enable --now snapd
+                }
+                Snap_function_start="$distro_os"_Snap
+
+            fi 
+
+            if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+                function openSUSE_Flatpak(){
+
+                    sudo zypper install flatpak 
+                    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+                }
+                Flatpak_function_start="$distro_os"_Flatpak 
+
+            fi 
+            Check_internet_connection ;; 
+    esac 
+    
 }
