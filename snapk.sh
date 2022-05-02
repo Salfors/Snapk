@@ -16,7 +16,7 @@ __________ SNAPK
                   |           |
                   |           |……… ASCII_Art  (To show the art of ascii )
                   |           |
-                  |           |……… Check_interinternet_note_connection  (To check the status of your internet connection)
+                  |           |……… Check_internet_connection  (To check the status of your internet connection)
                   |           |
                   |           |……… Check_distro_function  (to export source functions)
                   |           |
@@ -140,9 +140,9 @@ ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
 
 }
  
-#----------------- Check_interinternet_note_connection ------------#
+#----------------- Check_internet_connection ------------#
 
-function Check_interinternet_note_connection() {  
+function Check_internet_connection() {  
 
 if nc -zw1 google.com 443 >/dev/null 2>&1 ; then
 
