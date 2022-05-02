@@ -16,6 +16,8 @@ __________ SNAPK
                   |           |
                   |           |……… ASCII_Art  (To show the art of ascii )
                   |           |
+                  |           |……… Check_interinternet_note_connection  (To check the status of your internet connection)
+                  |           |
                   |           |……… Check_distro_function  (to export source functions)
                   |           |
                   |           |……… installation  (For the installation process after passing all verifications)
@@ -138,6 +140,45 @@ ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
 
 }
  
+#----------------- Check_interinternet_note_connection ------------#
+
+function Check_interinternet_note_connection() {  
+
+if nc -zw1 google.com 443 >/dev/null 2>&1 ; then
+
+    case $TODO in
+
+        "1") 
+            if  $Snap_function_start >/dev/null 2>&1 ; then
+                  $Snap_function_start
+            fi ;;
+
+        "2")
+            if  $Flatpak_function_start >/dev/null 2>&1 ; then
+                  $Flatpak_function_start
+            fi ;;
+
+        "3")
+            if  $Snap_function_start >/dev/null 2>&1 ; then
+                  $Snap_function_start
+            fi 
+            #Flatpak_function_start="$distro_os"_Flatpak 
+            if  $Flatpak_function_start >/dev/null 2>&1 ; then
+                  $Flatpak_function_start
+
+            fi ;;
+
+    esac
+
+else 
+    
+   internet_note="don't have an internet connection to install 📶❌${EM}\n"
+fi
+}
+
+
+#---------------------------------------------------------#
+
 
 #----------------Check_distro_function---------------#
 
@@ -333,6 +374,7 @@ function Check_snapk() {
 
       function Status_Messages() {
 
+
             if [ "$source_note" != "" ]; then
                   echo -e "$source_note"
             fi
@@ -350,18 +392,47 @@ function Check_snapk() {
             fi
 
             if [ "$snap_note" != ""  ]  && [ "$flatpak_note" != "" ]; then 
-                  echo -e "$snap_note"
-                  echo -e "$flatpak_note" 
+
+                  if  [ "$internet_note" != "" ] ; then   
+
+                        echo -e "$snap_note"
+                        echo -e "$flatpak_note" 
+                        echo -e "${SM} And you $internet_note"
+
+                  else 
+                        echo -e "$snap_note"
+                        echo -e "$flatpak_note" 
+                  fi
                  
             elif [ "$snap_note" != "" ]; then 
-                  echo -e "$snap_note"
+
+                  if  [ "$internet_note" != "" ] ; then         
+
+                        echo -e "$snap_note"
+                        echo -e "${SM} And you $internet_note"
+
+                  else 
+                       echo -e "$snap_note"
+                  fi
             
-            elif [ "$flatpak_note" != "" ]; then
-                  echo -e "$flatpak_note"
+            elif [ "$flatpak_note" != "" ] ; then
+
+                  if  [ "$internet_note" != "" ] ; then     
+
+                        echo -e "$flatpak_note"
+                        echo -e "${SM} And you $internet_note"
+
+                  else 
+                        echo -e "$flatpak_note"
+                  fi
+
+            elif [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$internet_note" != "" ]; then
+                  echo -e "\n${SM} You $internet_note"
 
             fi
 
-            if [ "$note" == ""  ]  && [ "$note2" == "" ] && [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ]; then 
+            if [ "$note" == ""  ]  && [ "$note2" == "" ] && [ "$snap_note" == ""  ]  && [ "$flatpak_note" == "" ] && [ "$source_note" == "" ] && [ "$internet_note" == "" ]; then 
+                  clear
                   echo -e "\n${SP}Done${EP}\n"
                   echo -e "${SP}You may need to restart now${EP}\n"
                   read -n 1 -s -r -p "Press any key to Exit ..."
@@ -375,7 +446,7 @@ function Check_snapk() {
       case $TODO in 
             "1")
                   Snap=`snap --version`
-                  if ! $Snap >/dev/null 2>&1; then #!
+                  if  ! $Snap >/dev/null 2>&1; then #!
                         clear
                         echo -e "\n${SP}you already have${EP}:\n"
                         echo -e "$Snap\n"
@@ -383,6 +454,7 @@ function Check_snapk() {
                   else
                         clear
                         installation 
+                        clear
                         Status_Messages
 
                   fi ;;
@@ -395,8 +467,9 @@ function Check_snapk() {
                         echo -e "\n${SP}you already have${EP}: $Flatpak\n"
 
                   else
-		        clear
+                        clear
                         installation
+                        clear
                         Status_Messages
                   fi ;;
 
@@ -407,7 +480,7 @@ function Check_snapk() {
                         #(cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
                         note="\n${SP}you already have${EP}: $Flatpak\n"
                   else
-                        installation 
+                        Flatpak_retrun=Start_flatpak_install 
 
                   fi
                   Snap=`snap --version`
@@ -415,9 +488,11 @@ function Check_snapk() {
                         note2="${SP}you already have${EP}:\n"
 
                   else
-                        installation 
+                        Snap_retrun=Start_snap_install
                   fi
-                  clear # add to comment to understand the changes 
+                  clear
+                  installation  # add to comment to understand the changes 
+                  clear
                   Status_Messages ;;
       esac
       
