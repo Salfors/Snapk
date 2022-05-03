@@ -381,13 +381,13 @@ function Check_snapk() {
 
             if [ "$note" != ""  ]  && [ "$note2" != "" ]; then 
                   echo -e "$note"
-                  echo -e "$note2\n$Snap\n"
+                  echo -e "$note2\n$Snap ✔\n"
                  
             elif [ "$note" != "" ]; then 
                   echo -e "$note"                
 
             elif [ "$note2" != "" ]; then
-                  echo -e "$note2\n$Snap\n"               
+                  echo -e "$note2\n$Snap ✔\n"               
 
             fi
 
@@ -449,7 +449,7 @@ function Check_snapk() {
                   if  ! $Snap >/dev/null 2>&1; then #!
                         clear
                         echo -e "\n${SP}you already have${EP}:\n"
-                        echo -e "$Snap\n"
+                        echo -e "$Snap ✔\n"
 
                   else
                         clear
@@ -468,9 +468,9 @@ function Check_snapk() {
                               clear
                               (cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
                               clear
-                              echo -e "\n${SP}you already have${EP}: $Flatpak\n"
+                              echo -e "\n${SP}you already have${EP}: $Flatpak ✔\n"
                         else
-                              echo -e "\n${SP}you already have${EP}: $Flatpak\n"
+                              echo -e "\n${SP}you already have${EP}: $Flatpak ✔\n"
                         fi 
                         #clear
                         
@@ -491,9 +491,9 @@ function Check_snapk() {
                         if nc -zw1 google.com 443 >/dev/null 2>&1 ; then
                               clear
                               (cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
-                              note="\n${SP}you already have${EP}: $Flatpak\n"
+                              note="\n${SP}you already have${EP}: $Flatpak ✔\n"
                         else
-                               note="\n${SP}you already have${EP}: $Flatpak\n"
+                               note="\n${SP}you already have${EP}: $Flatpak ✔\n"
                         fi
 
                   else
