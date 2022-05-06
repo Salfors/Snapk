@@ -71,6 +71,7 @@ max=2
  #------- to make clean screen with limit trying 
 
 function clean_screen() {
+
       if [ "$count" -eq "$max" ]; then
             clear
             count=`expr $count - 2`
@@ -103,38 +104,39 @@ com
 ########################################
 
 function ASCII_Art () {  
-clear
-sleep 0.3 ; 
-echo -e "
-${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}"; sleep 0.3
-echo -e "${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}"; sleep 0.3
-echo -e "${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
-" ; sleep 0.3
+      
+      clear
+      sleep 0.3 ; 
+      echo -e "
+      ${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}"; sleep 0.3
+      echo -e "${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}"; sleep 0.3
+      echo -e "${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
+      " ; sleep 0.3
 
-ASCII_art =0
+      ASCII_art =0
 
-while true 
-do 
-clear
-sleep 0.3
-echo -e "
-${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}
-${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}
-${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
-"
-sleep 0.3
-ASCII_art=`expr $ASCII_art + 1`
-if [ "$ASCII_art" == "3" ]; then 
-      break
-fi
-done 
-clear 
+      while true 
+      do 
+      clear
+      sleep 0.3
+      echo -e "
+      ${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}
+      ${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}
+      ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
+      "
+      sleep 0.3
+      ASCII_art=`expr $ASCII_art + 1`
+      if [ "$ASCII_art" == "3" ]; then 
+            break
+      fi
+      done 
+      clear 
 
-echo -e "
-${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}
-${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}
-${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
-"
+      echo -e "
+      ${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}
+      ${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}
+      ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
+      "
 
 
 
