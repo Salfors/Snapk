@@ -10,7 +10,7 @@ function GalliumOS() {
 			Check_internet_connection ;;
 
 		"2")
-			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n" ;;
+			flatpak_note="\n${SM} Flatpak does not support your distro ${dy}✖${rt} ${EM}\n" ;;
 
 		"3")
 			if ! $Snap_retrun >/dev/null 2>&1 ; then 
@@ -21,7 +21,7 @@ function GalliumOS() {
 				Snap_function_start="$distro_os"_Snap 
 			fi 
 			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
-				flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n"
+				flatpak_note="\n${SM} Flatpak does not support your distro ${dy}✖${rt} ${EM}\n"
 			fi
 			Check_internet_connection ;;
 	esac
