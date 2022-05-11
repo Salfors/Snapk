@@ -3,7 +3,7 @@ function Alpine() {
 	case $TODO in 
 		"1")
 
-			snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+			snap_note="\n${SM} Snap does not support your distro ${dy}✖${rt} ${EM}\n" 
 			Check_internet_connection ;;
 
 		"2")
@@ -18,7 +18,7 @@ function Alpine() {
 		"3")
 			if ! $Snap_retrun >/dev/null 2>&1 ; then 
 
-				snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+				snap_note="\n${SM} Snap does not support your distro ${dy}✖${rt} ${EM}\n" 
 			fi
 
 			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
