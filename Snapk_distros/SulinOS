@@ -1,7 +1,7 @@
 function SulinOS() {
 	case $TODO in 
 		"1")
-			snap_note="\n${SM} Snap does not support your distro ${EM}\n"  ;;
+			snap_note="\n${SM} Snap does not support your distro ${dy}✖${rt} ${EM}\n"  ;;
 
 		"2")
 			function SulinOS_Flatpak() { 
@@ -13,7 +13,7 @@ function SulinOS() {
 			SulinOS_Flatpak ;;
 
 		"3")
-			snap_note="\n${SM} Snap does not support your distro ${EM}\n" 
+			snap_note="\n${SM} Snap does not support your distro ${dy}✖${rt} ${EM}\n" 
 			SulinOs_Flatpak ;;
 	esac
 }
