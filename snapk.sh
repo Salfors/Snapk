@@ -39,7 +39,8 @@ com
 
 r="\e[0;91m"  #> red
 b="\e[0;94m"  # > blue
-y="\033[1;33m" #>Yellow#
+dy="\e[0;93m"  #> I don't know, the color looks dark yellow, unlike the yellow below ${y} it looks light anyway 
+y="\033[1;33m" #>Yellow
 g="\e[0;92m" #> green
 w="\e[0;97m" #> white
 bo="\e[1m" #> bold
@@ -383,13 +384,13 @@ function Check_snapk() {
 
             if [ "$note" != ""  ]  && [ "$note2" != "" ]; then 
                   echo -e "$note"
-                  echo -e "$note2\n$Snap ✔\n"
+                  echo -e "$note2\n$Snap ${g}✔${rt}\n" # To make the mark green (${g}✔${rt})
                  
             elif [ "$note" != "" ]; then 
                   echo -e "$note"                
 
             elif [ "$note2" != "" ]; then
-                  echo -e "$note2\n$Snap ✔\n"               
+                  echo -e "$note2\n$Snap ${g}✔${rt}\n"               
 
             fi
 
@@ -451,7 +452,7 @@ function Check_snapk() {
                   if  ! $Snap >/dev/null 2>&1; then #!
                         clear
                         echo -e "\n${SP}you already have${EP}:\n"
-                        echo -e "$Snap ✔\n"
+                        echo -e "$Snap ${g}✔${rt}\n" 
 
                   else
                         clear
@@ -470,9 +471,9 @@ function Check_snapk() {
                               clear
                               (cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
                               clear
-                              echo -e "\n${SP}you already have${EP}: $Flatpak ✔\n"
+                              echo -e "\n${SP}you already have${EP}: $Flatpak ${g}✔${rt}\n"
                         else
-                              echo -e "\n${SP}you already have${EP}: $Flatpak ✔\n"
+                              echo -e "\n${SP}you already have${EP}: $Flatpak ${g}✔${rt}\n"
                         fi 
                         #clear
                         
@@ -493,9 +494,9 @@ function Check_snapk() {
                         if nc -zw1 google.com 443 >/dev/null 2>&1 ; then
                               clear
                               (cd $Home; cd Downloads/ ; sudo rm -rf flathub.* ; wget https://flathub.org/repo/flathub.flatpakrepo; sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo) 
-                              note="\n${SP}you already have${EP}: $Flatpak ✔\n"
+                              note="\n${SP}you already have${EP}: $Flatpak ${g}✔${rt}\n"
                         else
-                               note="\n${SP}you already have${EP}: $Flatpak ✔\n"
+                               note="\n${SP}you already have${EP}: $Flatpak ${g}✔${rt}\n"
                         fi
 
                   else
@@ -534,7 +535,8 @@ function main() {
             echo -e "${g}${bo}+${rt}${SL3} ${w}${bo}FlatPAK & Snapd${rt}"  
             echo -e "${g}${bo}+${rt}${SL0} ${w}${bo}Exit${rt}\n"  
 
-            read -p "Choose an option: "  option
+            read -p $'\033[36m > \033[0m' option
+            
             case $option in 
                   "1") # To Do
                         TODO="1" # Snapd 
