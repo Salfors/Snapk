@@ -105,44 +105,43 @@ com
 ########################################
 
 function ASCII_Art () {  
-      
-      clear
-      sleep 0.3 ; 
-      echo -e "
-      ${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}"; sleep 0.3
-      echo -e "${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}"; sleep 0.3
-      echo -e "${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
-      " ; sleep 0.3
+clear
+sleep 0.3 ; 
+echo -e "
+${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}"; sleep 0.3
+echo -e "${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}"; sleep 0.3
+echo -e "${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
+" ; sleep 0.3
 
-      ASCII_art =0
+ASCII_art =0
 
-      while true 
-      do 
-      clear
-      sleep 0.3
-      echo -e "
-      ${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}
-      ${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}
-      ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
-      "
-      sleep 0.3
-      ASCII_art=`expr $ASCII_art + 1`
-      if [ "$ASCII_art" == "3" ]; then 
-            break
-      fi
-      done 
-      clear 
+while true 
+do 
+clear
+sleep 0.3
+echo -e "
+${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}
+${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}
+${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
+"
+sleep 0.3
+ASCII_art=`expr $ASCII_art + 1`
+if [ "$ASCII_art" == "3" ]; then 
+      break
+fi
+done 
+clear 
 
-      echo -e "
-      ${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}
-      ${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}
-      ${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
-      "
+echo -e "
+${y}${bo}╔═╗┌┐┌${rt}${p}${bo}╔═╗${rt}${w}${bo}┌─┐┬┌─${rt}
+${y}${bo}╚═╗│││${rt}${p}${bo}╠═╣${rt}${w}${bo}├─┘├┴┐${rt}
+${y}${bo}╚═╝┘└┘${rt}${p}${bo}╩ ╩${rt}${w}${bo}┴  ┴ ┴${rt}
+"
 
 
 
 }
- 
+
 #----------------- Check_interinternet_note_connection ------------#
 
 function Check_internet_connection() {  
