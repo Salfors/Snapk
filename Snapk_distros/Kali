@@ -1,33 +1,45 @@
 function Kali() {
-	case $TODO in 
-		"1")
-			function Kali_Snap() { 
-				sudo apt update
-				sudo apt install snapd 
-				sudo systemctl enable --now snapd apparmor 
-			}
-			Snap_function_start="$distro_os"_Snap 
-			Check_internet_connection ;;
+    case $TODO in 
+        "1")
+            function Kali_Snap() { 
+                sudo apt update
+                sudo apt install snapd 
+                sudo systemctl enable --now snapd apparmor 
+            }
+            Snap_function_start="$distro_os"_Snap 
+            Check_internet_connection ;;
 
-		"2")
-			flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n" 
-			Check_internet_connection;;
+        "2")
+            function Kali_Flatpak() { 
 
-		"3")
-			if ! $Snap_retrun >/dev/null 2>&1 ; then 
-				function Kali_Snap() { 
-					sudo apt update
-					sudo apt install snapd 
-					sudo systemctl enable --now snapd apparmor 
-				}
-				Snap_function_start="$distro_os"_Snap 
-			fi 
+                 sudo apt update
+                 sudo apt install -y flatpak
+                 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+            }
+            Flatpak_function_start="$distro_os"_Flatpak 
+            Check_internet_connection;;
 
-			if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
-				
-				flatpak_note="\n${SM} Flatpak does not support your distro ${EM}\n" 
-			fi
-			Check_internet_connection ;; 
+        "3")
+            if ! $Snap_retrun >/dev/null 2>&1 ; then 
+                function Kali_Snap() { 
+                    sudo apt update
+                    sudo apt install snapd 
+                    sudo systemctl enable --now snapd apparmor 
+                }
+                Snap_function_start="$distro_os"_Snap 
+            fi 
+
+            if ! $Flatpak_retrun >/dev/null 2>&1 ; then 
+                
+                function Kali_Flatpak() { 
+
+                     sudo apt update
+                     sudo apt install -y flatpak
+                     sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+                }
+                Flatpak_function_start="$distro_os"_Flatpak 
+            fi
+            Check_internet_connection ;; 
 
 esac 
 }
